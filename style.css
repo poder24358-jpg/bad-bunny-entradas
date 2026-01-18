@@ -1,4 +1,4 @@
-* { margin:0; padding:0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+ï»¿* { margin:0; padding:0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 body { background: #f8f8f8; overflow-x: hidden; }
 
 .img-fit { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -701,7 +701,7 @@ a, button { position: relative; overflow: hidden; }
 
 
 
-/* --- SECCIÓN DE COMENTARIOS MODERNA --- */
+/* --- SECCIï¿½N DE COMENTARIOS MODERNA --- */
 .comments-section {
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f7ff 100%);
     padding: 60px 20px;
@@ -858,7 +858,7 @@ a, button { position: relative; overflow: hidden; }
     box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
 }
 
-/* --- MODAL DE ÉXITO --- */
+/* --- MODAL DE ï¿½XITO --- */
 .success-modal {
     display: none;
     position: fixed;
@@ -955,6 +955,15 @@ a, button { position: relative; overflow: hidden; }
     color: #333;
 }
 
+@media (max-width: 768px) {
+    .success-modal {
+        display: none !important;
+    }
+    
+    .success-modal.active {
+        display: none !important;
+    }
+}
 @media (max-width: 768px) {
     .comments-section {
         padding: 40px 15px;
