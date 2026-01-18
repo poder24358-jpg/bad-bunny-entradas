@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Videos</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .test-box { padding: 20px; background: #f0f0f0; border-radius: 10px; margin: 10px 0; }
+        .btn { padding: 10px 20px; background: #2196F3; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .btn:hover { background: #1976D2; }
+    </style>
+</head>
+<body>
+    <h1>Test de Videos</h1>
+    
+    <div class="test-box">
+        <h3>Verificación:</h3>
+        <p>1. Modal ID existe: <span id="modal-check">Verificando...</span></p>
+        <p>2. Video ID existe: <span id="video-check">Verificando...</span></p>
+        <p>3. Funciones existen: <span id="func-check">Verificando...</span></p>
+    </div>
+    
+    <div class="test-box">
+        <h3>Test de Clic</h3>
+        <button class="btn" onclick="testClickVideo()">Simular Click en Video</button>
+    </div>
+
+    <script>
+        // Verificar elementos
+        window.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('modal-check').textContent = document.getElementById('videoModal') ? 'SI' : 'NO';
+            document.getElementById('video-check').textContent = document.getElementById('modalVideo') ? 'SI' : 'NO';
+            document.getElementById('func-check').textContent = (typeof abrirVideoModal === 'function' && typeof cerrarVideoModal === 'function') ? 'SI' : 'NO';
+        });
+        
+        function testClickVideo() {
+            console.log('Test: Abriendo modal...');
+            const event = {
+                stopPropagation: () => {},
+                currentTarget: {
+                    querySelector: () => ({
+                        querySelector: () => ({
+                            src: 'videos/tk1.mp4'
+                        })
+                    })
+                }
+            };
+            abrirVideoModal(event);
+        }
+    </script>
+</body>
+</html>

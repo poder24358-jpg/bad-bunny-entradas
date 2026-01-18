@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>viagogo - Bad Bunny</title>
+    <title>ticketmaster</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="main-header">
         <div class="menu-link">Menú <span>&#10095;</span></div>
-        <div class="logo">viagogo</div>
+        <div class="logo">ticketmaster</div>
         <div class="header-icons">
             <span>&#128269;</span>
             <span class="user-icon">&#128100;</span>
@@ -40,7 +40,7 @@
                 <div class="event-info">
                     <h3>El Monumental Stadium</h3>
                     <p class="location">Buenos Aires, Argentina</p>
-                    <p class="time">20:00 · Bad Bunny</p>
+                    <p class="time">20:00 - Bad Bunny</p>
                 </div>
             </div>
             <div class="urgency-tag">
@@ -59,7 +59,7 @@
                 <div class="event-info">
                     <h3>El Monumental Stadium</h3>
                     <p class="location">Buenos Aires, Argentina</p>
-                    <p class="time">21:00 · Bad Bunny</p>
+                    <p class="time">21:00 - Bad Bunny</p>
                 </div>
             </div>
             <div class="urgency-tag">
@@ -78,7 +78,7 @@
                 <div class="event-info">
                     <h3>El Monumental Stadium</h3>
                     <p class="location">Buenos Aires, Argentina</p>
-                    <p class="time">20:00 · Bad Bunny</p>
+                    <p class="time">20:00 - Bad Bunny</p>
                 </div>
             </div>
             <div class="urgency-tag">
@@ -88,6 +88,40 @@
         </div>
 
     </main>
+
+    <!-- Sección de Recomendaciones con Videos -->
+    <section class="recommendations-section">
+        <h2 class="recommendations-title">Recomendaciones</h2>
+        <div class="recommendations-container">
+            <div class="recommendation-video-card" onclick="abrirVideoModal(event)" style="cursor: pointer;">
+                <video width="100%" height="100%" style="border-radius: 15px; object-fit: cover;" controls>
+                    <source src="videos/tk1.mp4" type="video/mp4">
+                    Tu navegador no soporta video HTML5.
+                </video>
+                <div class="video-overlay">
+                    <span class="play-icon"></span>
+                </div>
+            </div>
+            <div class="recommendation-video-card" onclick="abrirVideoModal(event)" style="cursor: pointer;">
+                <video width="100%" height="100%" style="border-radius: 15px; object-fit: cover;" controls>
+                    <source src="videos/tk2.mp4" type="video/mp4">
+                    Tu navegador no soporta video HTML5.
+                </video>
+                <div class="video-overlay">
+                    <span class="play-icon"></span>
+                </div>
+            </div>
+            <div class="recommendation-video-card" onclick="abrirVideoModal(event)" style="cursor: pointer;">
+                <video width="100%" height="100%" style="border-radius: 15px; object-fit: cover;" controls>
+                    <source src="videos/tk3.mp4" type="video/mp4">
+                    Tu navegador no soporta video HTML5.
+                </video>
+                <div class="video-overlay">
+                    <span class="play-icon"></span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Sección de Testimonios -->
     <section class="testimonials-section">
@@ -146,8 +180,6 @@
         </div>
     </section>
 
-
-
     <!-- Sección de Comentarios y Testimonios -->
     <section class="comments-section">
         <h2 class="comments-title">¿Quieres compartir tu experiencia?</h2>
@@ -197,196 +229,100 @@
         </div>
     </div>
 
-
-    <!-- Modal para imagen ampliada -->
-    <div id="modalImagen" class="modal-imagen" onclick="cerrarImagenGrande()">
-        <div class="contenedor-imagen" onclick="event.stopPropagation()">
-            <button class="cerrar-modal" onclick="cerrarImagenGrande()"></button>
-            <img src="images/entradas.jpg" alt="Entradas" class="imagen-ampliada">
+    <!-- Modal para reproducir videos en grande -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <button class="modal-close-btn" onclick="cerrarVideoModal()">&#10005;</button>
+            <video id="modalVideo" width="100%" height="100%" controls autoplay>
+                <source src="" type="video/mp4">
+                Tu navegador no soporta video HTML5.
+            </video>
         </div>
     </div>
 
-    <style>
-        .modal-imagen {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        .modal-imagen.activo {
-            display: flex;
-        }
-
-        .contenedor-imagen {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .imagen-ampliada {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        }
-
-        .cerrar-modal {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            background: #fff;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 28px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-            color: #333;
-        }
-
-        .cerrar-modal:active {
-            transform: scale(0.9);
-        }
-    </style>
-
     <script>
-    function abrirImagenGrande() {
-        document.getElementById('modalImagen').classList.add('activo');
-    }
+        console.log("Página cargada correctamente.");
 
-    function cerrarImagenGrande() {
-        document.getElementById('modalImagen').classList.remove('activo');
-    }
+        // Manejo del envío del formulario
+        const commentForm = document.getElementById('commentForm');
+        const fileUploadArea = document.getElementById('fileUploadArea');
+        const captureUpload = document.getElementById('captureUpload');
+        const fileName = document.getElementById('fileName');
 
-    // Cerrar modal al presionar Escape
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            cerrarImagenGrande();
-        }
-    });
-
-    function mostrarAgotado(event) {
-            event.preventDefault();
-            alert('Lo sentimos, este evento está AGOTADO. Por favor, selecciona otra fecha disponible.');
-        }
-    </script>
-
-    <!-- JavaScript para formulario de comentarios -->
-    <script>
-    // Manejar el upload de archivos
-    const fileUploadArea = document.getElementById('fileUploadArea');
-    const fileInput = document.getElementById('captureUpload');
-    const fileName = document.getElementById('fileName');
-
-    // Click en el área
-    fileUploadArea.addEventListener('click', () => fileInput.click());
-
-    // Drag and drop
-    fileUploadArea.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        fileUploadArea.style.background = '#e8f5e9';
-        fileUploadArea.style.borderColor = '#45a049';
-    });
-
-    fileUploadArea.addEventListener('dragleave', () => {
-        fileUploadArea.style.background = '#f9fff9';
-        fileUploadArea.style.borderColor = '#4caf50';
-    });
-
-    fileUploadArea.addEventListener('drop', (e) => {
-        e.preventDefault();
-        fileUploadArea.style.background = '#f9fff9';
-        fileUploadArea.style.borderColor = '#4caf50';
-        
-        const files = e.dataTransfer.files;
-        if (files.length > 0) {
-            fileInput.files = files;
-            mostrarNombreArchivo(files[0].name);
-        }
-    });
-
-    // Mostrar nombre del archivo cuando se selecciona
-    fileInput.addEventListener('change', (e) => {
-        if (e.target.files.length > 0) {
-            mostrarNombreArchivo(e.target.files[0].name);
-        }
-    });
-
-    function mostrarNombreArchivo(name) {
-        fileName.textContent = ' ' + name;
-        fileName.classList.add('show');
-    }
-
-    // Manejar el envío del formulario
-    const commentForm = document.getElementById('commentForm');
-    commentForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Validar que los campos tengan contenido
-        const name = document.getElementById('userName').value;
-        const comment = document.getElementById('userComment').value;
-        const file = document.getElementById('captureUpload').files[0];
-        
-        if (name && comment && file) {
-            // Mostrar modal de éxito
-            mostrarModalExito();
-            
-            // Limpiar el formulario después de un pequeño delay
-            setTimeout(() => {
-                commentForm.reset();
-                fileName.classList.remove('show');
+        if (commentForm) {
+            commentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                mostrarModalExito();
+                this.reset();
                 fileName.textContent = '';
-            }, 500);
+            });
         }
-    });
 
-    function mostrarModalExito() {
-        const modal = document.getElementById('successModal');
-        modal.classList.add('show');
-    }
+        if (fileUploadArea) {
+            fileUploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                fileUploadArea.style.backgroundColor = '#f0f0f0';
+            });
 
-    function cerrarModalExito() {
-        const modal = document.getElementById('successModal');
-        modal.classList.remove('show');
-    }
+            fileUploadArea.addEventListener('dragleave', () => {
+                fileUploadArea.style.backgroundColor = '#fff';
+            });
 
-    // Cerrar modal al presionar Escape
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            cerrarModalExito();
+            fileUploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                fileUploadArea.style.backgroundColor = '#fff';
+                if (e.dataTransfer.files.length > 0) {
+                    captureUpload.files = e.dataTransfer.files;
+                    fileName.textContent = e.dataTransfer.files[0].name;
+                }
+            });
+
+            if (captureUpload) {
+                captureUpload.addEventListener('change', function() {
+                    if (this.files.length > 0) {
+                        fileName.textContent = this.files[0].name;
+                    }
+                });
+            }
         }
-    });
 
-    // Cerrar modal al hacer clic fuera del contenido
-    const successModal = document.getElementById('successModal');
-    successModal.addEventListener('click', (e) => {
-        if (e.target === successModal) {
-            cerrarModalExito();
+        function mostrarModalExito() {
+            const successModal = document.getElementById('successModal');
+            if (successModal) {
+                successModal.classList.add('active');
+            }
         }
-    });
+
+        function cerrarModalExito() {
+            const successModal = document.getElementById('successModal');
+            if (successModal) {
+                successModal.classList.remove('active');
+            }
+        }
+
+        // Manejo de imagen grande
+        function abrirImagenGrande() {
+            alert('Función disponible próximamente');
+        }
+
+        function mostrarAgotado(event) {
+            event.preventDefault();
+            alert('Lo sentimos, este evento está agotado');
+        }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        const successModal = document.getElementById('successModal');
+        if (successModal) {
+            successModal.addEventListener('click', (e) => {
+                if (e.target === successModal) {
+                    cerrarModalExito();
+                }
+            });
+        }
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
 
 
 

@@ -1,5 +1,4 @@
-// script.js
-console.log("Página cargada correctamente.");
+ï»¿console.log("PÃ¡gina cargada correctamente.");
 
 // Precios base para todas las secciones
 const preciosBase = {
@@ -8,18 +7,18 @@ const preciosBase = {
     'Campo General': 130.000
 };
 
-// Función para calcular el multiplicador según la cantidad de entradas
+// FunciÃ³n para calcular el multiplicador segÃºn la cantidad de entradas
 function obtenerMultiplicador(cantidad) {
     const cantidadNum = parseInt(cantidad) || 1;
     if (cantidadNum === 2) {
-        return 1.8178100863244; // Aumento de 80%
+        return 1.8178100863244;
     } else if (cantidadNum === 3) {
-        return 2.8178100863244; // Aumento de 130%
+        return 2.8178100863244;
     }
-    return 1; // Sin aumento para 1 entrada
+    return 1;
 }
 
-// Función para actualizar el precio basado en cantidad
+// FunciÃ³n para actualizar el precio basado en cantidad
 function calcularPrecioConCantidad(nombreSeccion, cantidad) {
     const precioBase = preciosBase[nombreSeccion] || 0;
     const multiplicador = obtenerMultiplicador(cantidad);
@@ -31,3 +30,62 @@ function obtenerCantidadEntradas() {
     return localStorage.getItem('cantidadEntradas') || '1';
 }
 
+// ============ FUNCIONES PARA MODAL DE VIDEOS ============
+function abrirVideoModal(event) {
+    event.stopPropagation();
+    const videoCard = event.currentTarget;
+    const video = videoCard.querySelector('video');
+    const src = video.querySelector('source').src;
+    
+    console.log("Abriendo video:", src);
+    
+    const modal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    
+    if (!modal || !modalVideo) {
+        console.error("Modal no encontrado");
+        return;
+    }
+    
+    modalVideo.src = src;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    // Cerrar modal cuando termine el video
+    modalVideo.onended = function() {
+        cerrarVideoModal();
+    };
+}
+
+function cerrarVideoModal() {
+    const modal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    
+    if (modal) {
+        modal.classList.remove('active');
+    }
+    if (modalVideo) {
+        modalVideo.pause();
+        modalVideo.currentTime = 0;
+    }
+    document.body.style.overflow = 'auto';
+}
+
+// Cerrar modal al hacer clic en el fondo
+document.addEventListener('DOMContentLoaded', function() {
+    const videoModal = document.getElementById('videoModal');
+    if (videoModal) {
+        videoModal.addEventListener('click', function(event) {
+            if (event.target === videoModal) {
+                cerrarVideoModal();
+            }
+        });
+    }
+    
+    // Cerrar modal con tecla Escape
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            cerrarVideoModal();
+        }
+    });
+});
