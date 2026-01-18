@@ -1,4 +1,4 @@
-﻿* { margin:0; padding:0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+* { margin:0; padding:0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 body { background: #f8f8f8; overflow-x: hidden; }
 
 .img-fit { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -701,7 +701,7 @@ a, button { position: relative; overflow: hidden; }
 
 
 
-/* --- SECCI�N DE COMENTARIOS MODERNA --- */
+/* --- SECCI?N DE COMENTARIOS MODERNA --- */
 .comments-section {
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f7ff 100%);
     padding: 60px 20px;
@@ -807,11 +807,7 @@ a, button { position: relative; overflow: hidden; }
     pointer-events: none;
 }
 
-.upload-placeholder svg {
-    color: #2196F3;
-    width: 50px;
-    height: 50px;
-}
+
 
 .upload-placeholder p {
     font-size: 15px;
@@ -858,7 +854,7 @@ a, button { position: relative; overflow: hidden; }
     box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
 }
 
-/* --- MODAL DE �XITO --- */
+/* --- MODAL DE ?XITO --- */
 .success-modal {
     display: none;
     position: fixed;
@@ -989,77 +985,11 @@ a, button { position: relative; overflow: hidden; }
         padding: 20px;
     }
     
-    .upload-placeholder svg {
-        width: 40px;
-        height: 40px;
-    }
-}
-
-
-
-/* ============ MODAL DE IMÁGENES ============ */
-.image-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.3s ease-out;
-}
-
-.image-modal.active {
-    display: flex;
-}
-
-.image-modal-content {
-    position: relative;
-    width: 90%;
-    height: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-close-btn {
-    position: absolute;
-    top: -40px;
-    right: 0;
-    background: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 30px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #333;
-    transition: all 0.3s ease;
-    z-index: 1001;
-}
-
-.modal-close-btn:hover {
-    background: #f0f0f0;
-    transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-    .modal-close-btn {
-        top: 10px;
-        right: 10px;
-        width: 35px;
-        height: 35px;
-        font-size: 24px;
-    }
     
-    .image-modal-content {
-        width: 95%;
-        height: 95%;
-    }
 }
+
+
+
+
+
+
